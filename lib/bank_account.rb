@@ -11,11 +11,13 @@ class Account
 
     def deposit(sum)
         @balance += sum
-       
+        @account_history.log_deposit(sum)
     end
 
     def withdraw(sum)
         @balance -= sum
     end
+
+    
 
 end
