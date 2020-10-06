@@ -1,7 +1,6 @@
 require 'bank_account'
 
 describe Account do 
-    let(:account_log) { double :account_log}
     
 
     describe '#deposit' do
@@ -26,15 +25,5 @@ describe Account do
       end
     end
 
-    describe '#view' do
-      it 'can view past transactions' do
-        allow(account_log).to receive(:log_deposit).and_return({:date => '06/10/2020', :deposit => 200, :balance => 200})
-        allow(account_log).to receive(:view).and_return('date    || credit || debit || balance' "\n" '06/10/2020 ||  200 ||  || 200')
-        account = Account.new(account_log)
-     
-        account.deposit(200)
-        expect(account.view_statement).to eq('date    || credit || debit || balance' "\n" '06/10/2020 ||  200 ||  || 200')
-      end
-    end
 end
 

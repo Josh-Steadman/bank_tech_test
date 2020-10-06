@@ -6,10 +6,13 @@ class AccountLog
     end
 
     def view
-        puts @account_log
-        @account_log.each do |transaction| puts 'date    || credit || debit || balance' "\n" "#{transaction[:date]} ||  #{transaction[:deposit]}    || #{transaction[:withdraw]}      || #{transaction[:balance]}"  end
-        # date = Time.new()
-        # p date.strftime("%Y-%m-%d") 
+        puts 'date        || credit || debit || balance'
+        i = @account_log.length - 1
+        while i >= 0 do
+            puts "#{@account_log[i][:date]} ||  #{@account_log[i][:deposit]}    ||     #{@account_log[i][:withdraw]}     || #{@account_log[i][:balance]}"
+            i -= 1
+        end
+         
     end
 
     def log_deposit(sum, date, balance)
