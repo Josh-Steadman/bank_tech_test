@@ -19,6 +19,11 @@ describe Account do
         subject.withdraw(100, '04/10/2020')
         expect(subject.balance).to eq(100)
       end
+
+      it 'throws an error if balance goes below 0' do 
+
+        expect(subject.withdraw(100, '06/10/2020')).to raise_error "balance can't go below £0" 
+      end
     end
 
     describe '#view' do

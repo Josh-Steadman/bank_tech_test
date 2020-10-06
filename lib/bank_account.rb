@@ -19,6 +19,8 @@ class Account
         @account_history.log_withdraw(sum, date, @balance)
     end
 
-    
+    def view_statement
+        @account_history.view
+    end
 
 end
