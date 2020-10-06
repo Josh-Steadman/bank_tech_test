@@ -9,14 +9,15 @@ class Account
         @account_history = account_history
     end
 
-    def deposit(sum, date)
+    def deposit(sum, date = Time.new)
         @balance += sum
-        @account_history.log_deposit(sum, date, @balance)
+        @account_history.log_deposit(sum, date.strftime("%Y-%m-%d"), @balance)
     end
 
-    def withdraw(sum, date)
+    def withdraw(sum, date = Time.new)
+        fail "balance can't go below £0" if balance - sum < 0
         @balance -= sum
-        @account_history.log_withdraw(sum, date, @balance)
+        @account_history.log_withdraw(sum, date.strftime("%Y-%m-%d"), @balance)
     end
 
     def view_statement
