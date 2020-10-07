@@ -1,7 +1,7 @@
 require 'bank_account'
 
 describe Account do 
-    
+    let(:account_log)  { double :account_log}
 
     describe '#deposit' do
       it 'increases account balance by £100 when £100 is deposited' do
